@@ -1,0 +1,11 @@
+if (UNIX)
+    set(PHONENUMBER_LIB_SEARCH_PATH /usr/lib)
+    set(PHONENUMBER_INC_SEARCH_PATH /usr/include)
+endif ()
+
+find_path(PHONENUMBER_INCLUDE_PATH phonenumbers/phonenumberutil.h ${PHONENUMBER_LIB_SEARCH_PATH})
+find_library(PHONENUMBER_LIB phonenumber ${PHONENUMBER_LIB_SEARCH_PATH})
+
+if (PHONENUMBER_LIB AND PHONENUMBER_INCLUDE_PATH)
+    set(PHONENUMBER TRUE)
+endif()
